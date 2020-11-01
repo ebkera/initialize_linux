@@ -1,4 +1,5 @@
 #!/bin/bash
+# Remember to change email address for git on line 29
 
 ## General stuff here
 sudo apt update
@@ -16,14 +17,19 @@ sudo apt-get install tlp tlp-rdw
 #sudo apt-get remove tlp
 #sudo add-apt-repository --remove ppa:linrunner/tlp
 
-# python stuff install pip
+# python stuff (setup and install of packages for me) 
+# install pip
 sudo apt install python3-pip
 #installing required packages throgh pip
 pip install ase
 
 # Installing git and setting user data
 sudo apt install git-all
-git config --global user.name <github userID>
+git config --global user.name ebkera
 git config --global user.email johndoe@hotmail.com
 
 # pulling my own repos
+path_to_packages=$(python3 -m site --user-site)
+echo "Path to packages: $path_to_packages"
+cd $path_to_packages
+git clone https://github.com/ebkera/ebk.git
