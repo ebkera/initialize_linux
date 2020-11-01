@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 ## General stuff here
 sudo apt update
 sudo apt upgrade
@@ -16,3 +15,15 @@ sudo apt-get install tlp tlp-rdw
 #To uninstall TLP, you can use the following commands:
 #sudo apt-get remove tlp
 #sudo add-apt-repository --remove ppa:linrunner/tlp
+
+# python stuff install pip
+sudo apt install python3-pip
+#installing required packages throgh pip
+pip install ase
+
+# Installing git and setting user data
+sudo apt install git-all
+git config --global user.name <github userID>
+git config --global user.email johndoe@hotmail.com
+
+# pulling my own repos
