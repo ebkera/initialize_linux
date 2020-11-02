@@ -21,7 +21,7 @@ sudo apt-get install tlp tlp-rdw
 # install pip
 sudo apt install python3-pip
 #installing required packages throgh pip
-pip install ase
+pip3 install ase
 
 # Installing git and setting user data
 sudo apt install git-all
