@@ -5,13 +5,17 @@
 sudo apt update
 sudo apt upgrade
 # Adding commonly required packages
-sudo apt install curl
+sudo apt install -y curl
+
+# Appearance and look and feel here
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 12
 
 ## If this is a laptop and the OS is ubuntu then usually overheating occurs so we need TLP
 # This is from: https://itsfoss.com/reduce-overheating-laptops-linux/
 sudo add-apt-repository ppa:linrunner/tlp
 sudo apt-get update
-sudo apt-get install tlp tlp-rdw
+sudo apt-get install -y tlp tlp-rdw
 # If you are using ThinkPads, you require an additional step:
 # sudo apt-get install tp-smapi-dkms acpi-call-dkms
 #To uninstall TLP, you can use the following commands:
@@ -20,12 +24,12 @@ sudo apt-get install tlp tlp-rdw
 
 # python stuff (setup and install of packages for me) 
 # install pip
-sudo apt install python3-pip
+sudo apt install -y python3-pip
 #installing required packages throgh pip
 pip3 install ase
 
 # Installing git and setting user data
-sudo apt install git-all
+sudo apt install -y git-all
 git config --global user.name ebkera
 git config --global user.email johndoe@hotmail.com
 
@@ -42,4 +46,4 @@ echo "If installation fails make sure you have curl installed... try sudo apt in
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
 sudo apt update
-sudo apt install teams
+sudo apt install -y teams
