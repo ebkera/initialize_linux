@@ -3,7 +3,7 @@
 
 ## General stuff here
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 # Adding commonly required packages
 sudo apt install -y curl
 
