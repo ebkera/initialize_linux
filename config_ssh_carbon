@@ -1,0 +1,15 @@
+NoHostAuthenticationForLocalhost yes
+
+Host mega
+        Hostname mega.cnm.anl.gov
+        User              uname
+        LocalForward      33301  carbon:22
+        LocalForward      33380  carbonmgmt:80
+
+Host carbon
+        Hostname localhost
+        User              uname
+        Port              33301
+        ForwardX11        yes
+        ForwardX11Trusted yes
+
