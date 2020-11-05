@@ -33,12 +33,17 @@ sudo apt install -y git-all
 git config --global user.name ebkera
 git config --global user.email johndoe@hotmail.com
 
-# pulling my own repos
+# pulling my own repos and config files
 path_to_packages=$(python3 -m site --user-site)
 echo "Path to python packages: $path_to_packages"
 echo "git cloning my repos..."
 cd $path_to_packages
-git clone https://github.com/ebkera/ebk.git
+git clone https://github.com/ebkera/ebk.git 
+# carbon ssh config file and settings
+wget -O ~/.ssh/config https://raw.githubusercontent.com/ebkera/initialize_linux/main/config_ssh_carbon
+echo "Enter user name for ANL"
+read varname
+sed -i 's/uname/${varname}/' ~/.ssh/config
 
 # Installing MS-teams (not in repos)
 echo "Installing MS-Teams"
