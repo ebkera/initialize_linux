@@ -41,9 +41,8 @@ cd $path_to_packages
 git clone https://github.com/ebkera/ebk.git 
 # carbon ssh config file and settings
 wget -O ~/.ssh/config https://raw.githubusercontent.com/ebkera/initialize_linux/main/config_ssh_carbon
-echo "Enter user name for ANL"
-read varname
-sed -i 's/uname/${varname}/' ~/.ssh/config
+read -p "Enter user name for ANL:" varname
+sed -i 's/uname/$varname/' ~/.ssh/config
 
 # Installing MS-teams (not in repos)
 echo "Installing MS-Teams"
