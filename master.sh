@@ -1,5 +1,4 @@
 #!/bin/bash
-# Remember to change email address for git on line 29
 
 ## General stuff here
 sudo apt update
