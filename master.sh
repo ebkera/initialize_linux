@@ -6,6 +6,10 @@ sudo apt update
 sudo apt upgrade -y
 # Adding commonly required packages
 sudo apt install -y curl
+sudo apt install -y texlive-latex-extra
+sudo snap install --classic code
+code --install-extension james-yu.latex-workshop
+code --install-extension ms-python.python
 
 # Appearance and look and feel here
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
@@ -31,7 +35,8 @@ pip3 install ase
 # Installing git and setting user data
 sudo apt install -y git-all
 git config --global user.name ebkera
-git config --global user.email johndoe@hotmail.com
+git config --global user.email johndoe@hotmail.comg.org/mactex/elcapitan.html
+How to install
 
 # pulling my own repos and config files
 path_to_packages=$(python3 -m site --user-site)
