@@ -10,6 +10,7 @@ sudo apt install -y texlive-latex-extra
 sudo snap install --classic code
 code --install-extension james-yu.latex-workshop
 code --install-extension ms-python.python
+sudo apt install -y gnuplot
 
 # Appearance and look and feel here
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
