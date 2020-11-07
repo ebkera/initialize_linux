@@ -12,7 +12,7 @@ code --install-extension ms-python.python
 sudo apt install -y gnuplot
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-udo apt install -y spotify-client
+sudo apt install -y spotify-client
 
 # Appearance and look and feel here
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
