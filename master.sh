@@ -38,8 +38,8 @@ pip3 install ase
 # Installing git and setting user data
 sudo apt install -y git-all
 git config --global user.name ebkera
-git config --global user.email johndoe@hotmail.comg.org/mactex/elcapitan.html
-How to install
+read -p "Enter email for git: " gitemail
+git config --global user.email $gitemail
 
 # pulling my own repos and config files
 path_to_packages=$(python3 -m site --user-site)
