@@ -18,7 +18,7 @@ sudo apt install -y spotify-client
 # Appearance and look and feel here
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 12
-gsettings set org.gnome.desktop.interface text-scaling-factor 0.75
+gsettings set org.gnome.desktop.interface text-scaling-factor 0.8
 
 ## If this is a laptop and the OS is ubuntu then usually overheating occurs so we need TLP
 # This is from: https://itsfoss.com/reduce-overheating-laptops-linux/
