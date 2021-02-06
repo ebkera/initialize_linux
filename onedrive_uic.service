@@ -5,7 +5,7 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-ExecStart=/usr/bin/onedrive --monitor
+ExecStart=/usr/bin/onedrive --monitor --confdir="/home/${USER}/.config/onedrive_uic"
 Restart=on-failure
 RestartSec=3
 RestartPreventExitStatus=3
