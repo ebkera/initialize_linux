@@ -68,6 +68,7 @@ sudo apt install -y teams
 # Do not use "apt intall onedrive" before installing the ppa as it is no longer supported and is not recommended.
 sudo add-apt-repository ppa:yann1ck/onedrive
 sudo apt install onedrive
+# The below part is for the personal onedrive
 onedrive  # Run onedrive to install for personal accounts. Copy the link shown and paste it in the web browser. Login and you will be taken to a blank page. Copy URL of page into terminal.
 onedrive --synchronize --verbose --dry-run  # Dont really need this but checking to see if everything works.
 onedrive --synchronize # This will sync all the files.
@@ -75,3 +76,12 @@ onedrive --synchronize # This will sync all the files.
 sudo apt install -y libnotify-dev  # Prereq for notifications
 systemctl --user enable onedrive
 systemctl --user start onedrive
+# Now let's do other Onedrives 
+# We follow instructions from here: https://github.com/abraunegg/onedrive/blob/master/docs/advanced-usage.md
+mkdir ~/.config/onedrive_uic
+# We should copy in a default config file. Here I have used a pre built config file.
+wget https://raw.githubusercontent.com/ebkera/initialize_linux/main/config_UIC_Onedrive -O ~/.config/onedrive_uic/config
+onedrive --confdir="~/.config/onedrive_uic"  # Here do the same as previous here: login with link, copy url back.
+onedrive --confdir="~/.config/onedrive_uic --display-config"  # Using this we can display the corrunt configuration
+onedrive --confdir="~/.config/onedrive_uic" --synchronize --verbose
+## Under construction
