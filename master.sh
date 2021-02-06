@@ -61,3 +61,17 @@ curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
 sudo apt update
 sudo apt install -y teams
+
+# Installing onedrive
+# See informative webpage here: https://www.linuxuprising.com/2020/02/how-to-keep-onedrive-in-sync-with.html
+# See git repo we use here: https://github.com/abraunegg
+# Do not use "apt intall onedrive" before installing the ppa as it is no longer supported and is not recommended.
+sudo add-apt-repository ppa:yann1ck/onedrive
+sudo apt install onedrive
+onedrive  # Run onedrive to install for personal accounts. Copy the link shown and paste it in the web browser. Login and you will be taken to a blank page. Copy URL of page into terminal.
+onedrive --synchronize --verbose --dry-run  # Dont really need this but checking to see if everything works.
+onedrive --synchronize # This will sync all the files.
+# This will enable systemd services to automate the startup, syncing and monitoring of onedrive.
+sudo apt install -y libnotify-dev  # Prereq for notifications
+systemctl --user enable onedrive
+systemctl --user start onedrive
