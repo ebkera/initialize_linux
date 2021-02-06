@@ -70,8 +70,9 @@ sudo add-apt-repository ppa:yann1ck/onedrive
 sudo apt install onedrive
 # The below part is for the personal onedrive
 onedrive  # Run onedrive to install for personal accounts. Copy the link shown and paste it in the web browser. Login and you will be taken to a blank page. Copy URL of page into terminal.
-onedrive --synchronize --verbose --dry-run  # Dont really need this but checking to see if everything works.
-onedrive --synchronize # This will sync all the files.
+# The following two lines are uncommented because it will take time. The first line only checks. The second line syncs but will not be persistent. This might automatically happen during the enabling of services
+# onedrive --synchronize --verbose --dry-run  # Dont really need this but checking to see if everything works.
+# onedrive --synchronize # This will sync all the files.
 # This will enable systemd services to automate the startup, syncing and monitoring of onedrive.
 sudo apt install -y libnotify-dev  # Prereq for notifications
 systemctl --user enable onedrive
@@ -82,6 +83,12 @@ mkdir ~/.config/onedrive_uic
 # We should copy in a default config file. Here I have used a pre built config file.
 wget https://raw.githubusercontent.com/ebkera/initialize_linux/main/config_UIC_Onedrive -O ~/.config/onedrive_uic/config
 onedrive --confdir="~/.config/onedrive_uic"  # Here do the same as previous here: login with link, copy url back.
-onedrive --confdir="~/.config/onedrive_uic --display-config"  # Using this we can display the corrunt configuration
-onedrive --confdir="~/.config/onedrive_uic" --synchronize --verbose
-## Under construction
+onedrive --confdir="~/.config/onedrive_uic" --display-config  # Using this we can display the current configuration. Make sure you do this. There was a mistake in the original file.
+# The following two lines are uncommented because it will take time. The first line only checks. The second line syncs but will not be persistent. This might automatically happen during the enabling of services
+# onedrive --confdir="~/.config/onedrive_uic" --synchronize --verbose --dry-run
+# onedrive --confdir="~/.config/onedrive_uic" --synchronize --verbose
+# Deviating a little bit from the instructions from onedrive. Instead of coyinbg a file and changing it I have already a set file that can be downloaded.
+# This is the relevant command if you want to copy and change the file: sudo cp /usr/lib/systemd/user/onedrive.service /usr/lib/systemd/user/onedrive_uic.service
+sudo wget https://raw.githubusercontent.com/ebkera/initialize_linux/main/onedrive_uic.service -O /usr/lib/systemd/user/onedrive_uic.service
+systemctl --user enable onedrive_uic
+systemctl --user start onedrive_uic
