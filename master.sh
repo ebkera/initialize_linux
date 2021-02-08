@@ -92,3 +92,5 @@ onedrive --confdir="~/.config/onedrive_uic" --display-config  # Using this we ca
 sudo wget https://raw.githubusercontent.com/ebkera/initialize_linux/main/onedrive_uic.service -O /usr/lib/systemd/user/onedrive_uic.service
 systemctl --user enable onedrive_uic
 systemctl --user start onedrive_uic
+
+
