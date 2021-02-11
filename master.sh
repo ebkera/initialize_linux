@@ -67,7 +67,7 @@ sudo apt install -y teams
 # See git repo we use here: https://github.com/abraunegg
 # Do not use "apt intall onedrive" before installing the ppa as it is no longer supported and is not recommended.
 sudo add-apt-repository ppa:yann1ck/onedrive
-sudo apt install onedrive
+sudo apt install -y onedrive
 # The below part is for the personal onedrive
 onedrive  # Run onedrive to install for personal accounts. Copy the link shown and paste it in the web browser. Login and you will be taken to a blank page. Copy URL of page into terminal.
 # The following two lines are uncommented because it will take time. The first line only checks. The second line syncs but will not be persistent. This might automatically happen during the enabling of services
