@@ -23,7 +23,7 @@ gsettings set org.gnome.desktop.interface text-scaling-factor 0.8
 
 ## If this is a laptop and the OS is ubuntu then usually overheating occurs so we need TLP
 # This is from: https://itsfoss.com/reduce-overheating-laptops-linux/
-sudo add-apt-repository ppa:linrunner/tlp
+sudo add-apt-repository -y ppa:linrunner/tlp
 sudo apt-get update
 sudo apt-get install -y tlp tlp-rdw
 # If you are using ThinkPads, you require an additional step:
