@@ -68,7 +68,7 @@ sed -i "s|uname|${varname}|g" ~/.ssh/config
 # See informative webpage here: https://www.linuxuprising.com/2020/02/how-to-keep-onedrive-in-sync-with.html
 # See git repo we use here: https://github.com/abraunegg
 # Do not use "apt intall onedrive" before installing the ppa as it is no longer supported and is not recommended.
-sudo add-apt-repository ppa:yann1ck/onedrive
+sudo add-apt-repository -y ppa:yann1ck/onedrive
 sudo apt install -y onedrive
 # The below part is for the personal onedrive
 onedrive  # Run onedrive to install for personal accounts. Copy the link shown and paste it in the web browser. Login and you will be taken to a blank page. Copy URL of page into terminal.
