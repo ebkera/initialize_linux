@@ -41,7 +41,7 @@ wget -O- https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
 # Thanks to the tee command in Linux, you’ll have a new file signal-xenial.list in the sources.list directory /etc/apt/sources.list.d. This new file will have the Signal repository information i.e. deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main.
 # Now that you have added the repository, update the cache and install Signal desktop application
-sudo apt install -y signal-desktop
+sudo apt update && sudo apt install -y signal-desktop  # Its essenstial to update again for the new repos.
 
 # python stuff (setup and install of packages for me) 
 # install pip
