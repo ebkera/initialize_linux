@@ -44,6 +44,15 @@ git config --global user.name ebkera
 read -p "Enter email for git: " gitemail
 git config --global user.email $gitemail
 
+# Installing MS-teams (not in repos)
+echo "Installing MS-Teams"
+echo "If installation fails make sure you have curl installed... try sudo apt install curl"
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
+sudo apt update
+sudo apt install -y teams
+
+#From here down we have setups where user input is needed.
 # pulling my own repos and config files
 path_to_packages=$(python3 -m site --user-site)
 echo "Path to python packages: $path_to_packages"
@@ -54,14 +63,6 @@ git clone https://github.com/ebkera/ebk.git
 wget -O ~/.ssh/config https://raw.githubusercontent.com/ebkera/initialize_linux/main/config_ssh_carbon
 read -p "Enter user name for ANL: " varname
 sed -i "s|uname|${varname}|g" ~/.ssh/config
-
-# Installing MS-teams (not in repos)
-echo "Installing MS-Teams"
-echo "If installation fails make sure you have curl installed... try sudo apt install curl"
-curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
-sudo apt update
-sudo apt install -y teams
 
 # Installing onedrive
 # See informative webpage here: https://www.linuxuprising.com/2020/02/how-to-keep-onedrive-in-sync-with.html
