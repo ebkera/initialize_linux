@@ -5,6 +5,7 @@ sudo apt update
 sudo apt upgrade -y
 # Adding commonly required packages
 sudo apt install -y vim
+sudo apt install -y htop
 sudo apt install -y curl
 sudo apt install -y texlive-latex-extra
 sudo apt install -y latexmk  # this is for vscode extension latex-workshop
