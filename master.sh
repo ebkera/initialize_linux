@@ -19,6 +19,12 @@ curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt install -y spotify-client
 
+# Adding OBS since you will need it someday
+sudo apt install -y ffmpeg
+sudo add-apt-repository -y ppa:obsproject/obs-studio
+sudo apt update  # updating new ppa
+sudo apt install -y obs-studio
+
 # Appearance and look and feel here
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 12
