@@ -2,7 +2,7 @@
 
 ## General stuff here
 echo "Installation Log" > ~/installation.log
-gnome-terminal -e "tail -f ~/installation.log" & # Will open up a new termail and follow on .log file
+# gnome-terminal -- tail -f ~/installation.log # Need to fix does not stay open # Will open up a new terminaland follow on .log file
 echo "" >> ~/installation.log
 echo "Updating Repos" >> ~/installation.log
 sudo apt update
