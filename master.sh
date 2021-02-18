@@ -1,7 +1,8 @@
 #!/bin/bash
 
 ## General stuff here
-echo "Installation Log" >> ~/installation.log
+echo "Installation Log" > ~/installation.log
+gnome-terminal -e "tail -f ~/installation.log" & # Will open up a new termail and follow on .log file
 echo "" >> ~/installation.log
 echo "Updating Repos" >> ~/installation.log
 sudo apt update
