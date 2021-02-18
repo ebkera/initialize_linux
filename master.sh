@@ -10,6 +10,7 @@ echo "Upgrading repos" >> ~/installation.log
 sudo apt upgrade -y
 
 # Adding commonly required packages
+echo "" >> ~/installation.log
 echo "--Commonly required packages--" >> ~/installation.log
 echo "Installing vim" >> ~/installation.log
 sudo apt install -y vim
@@ -66,6 +67,7 @@ sudo apt update
 sudo apt install -y teams
 
 # Appearance and look and feel here
+echo "" >> ~/installation.log
 echo "--Appearance/Look and feel--" >> ~/installation.log
 echo "Setting dock to bottom" >> ~/installation.log
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
@@ -76,6 +78,7 @@ gsettings set org.gnome.desktop.interface text-scaling-factor 0.8
 
 ## If this is a laptop and the OS is ubuntu then usually overheating occurs so we need TLP
 # This is from: https://itsfoss.com/reduce-overheating-laptops-linux/
+echo "" >> ~/installation.log
 echo "--Setting LTP for battery conservation on laptops--" >> ~/installation.log
 echo "Adding PPA linrunner" >> ~/installation.log
 sudo add-apt-repository -y ppa:linrunner/tlp
@@ -90,6 +93,7 @@ sudo apt-get install -y tlp tlp-rdw
 #sudo add-apt-repository --remove ppa:linrunner/tlp
 
 # python stuff (setup and install of packages for me) 
+echo "" >> ~/installation.log
 echo "--Python/Github and setting up my git repos--" >> ~/installation.log
 # install pip
 echo "Installing pip" >> ~/installation.log
@@ -99,6 +103,9 @@ echo "Installing ASE" >> ~/installation.log
 pip3 install ase
 
 # From here down we have setups where user input is needed.
+echo "" >> ~/installation.log
+echo "--From here on prepare to input user data--" >> ~/installation.log
+echo "" >> ~/installation.log
 # Installing git and setting user data
 echo "Installing git" >> ~/installation.log
 sudo apt install -y git-all
@@ -121,6 +128,7 @@ read -p "Enter user name for ANL: " varname
 sed -i "s|uname|${varname}|g" ~/.ssh/config
 
 # Installing onedrive
+echo "" >> ~/installation.log
 echo "--Installing OneDrive--" >> ~/installation.log
 echo "Installing OneDrive personal" >> ~/installation.log
 # See informative webpage here: https://www.linuxuprising.com/2020/02/how-to-keep-onedrive-in-sync-with.html
