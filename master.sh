@@ -80,6 +80,31 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams
 sudo apt update
 sudo apt install -y teams
 
+# Installing Windscribe
+echo "Installing Windscribe" >> ~/installation.log
+echo "  -Adding the Windscribe signing key to apt..." >> ~/installation.log
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key FDC247B7
+echo "  -Adding repository to my sources.list..." >> ~/installation.log
+echo 'deb https://repo.windscribe.com/ubuntu bionic main' | sudo tee /etc/apt/sources.list.d/windscribe-repo.list
+echo "  -Running apt-get update " >> ~/installation.log
+sudo apt-get update
+echo "  -Installing windscribe-cli " >> ~/installation.log
+sudo apt-get install -y windscribe-cli
+# 6. Login to Windscribe
+# windscribe login
+# 7. Connect to Windscribe
+# windscribe connect
+# 8. Need help?
+# windscribe --help
+echo "  -Adding" >> ~/installation.log
+echo "  -Adding" >> ~/installation.log
+echo "  -Adding" >> ~/installation.log
+echo "  -Adding" >> ~/installation.log
+echo "  -Adding" >> ~/installation.log
+echo "  -Adding" >> ~/installation.log
+
+
+
 # Appearance and look and feel here
 echo "" >> ~/installation.log
 echo "--Appearance/Look and feel--" >> ~/installation.log
