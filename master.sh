@@ -26,18 +26,32 @@ echo "Installing snapd" >> ~/installation.log
 sudo apt install -y snapd
 echo "Installing MS todo (unofficial)" >> ~/installation.log
 sudo snap install microsoft-todo-unofficial
-echo "Installing vs-code (snap)" >> ~/installation.log
-sudo snap install --classic code
-echo "Installing latex extension for vs-code" >> ~/installation.log
-code --install-extension james-yu.latex-workshop
-echo "Installing python extension for vs-code" >> ~/installation.log
-code --install-extension ms-python.python
 echo "Installing gnuplot" >> ~/installation.log
 sudo apt install -y gnuplot
 echo "Installing Spotify" >> ~/installation.log
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt install -y spotify-client
+
+# Installing vs-code from microsoft (non-snap) and extenstions
+echo "Installing vs-code (non-snap)" >> ~/installation.log
+echo "  -wget-ing files..." >> ~/installation.log
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+echo "  -installing microsoft packages..." >> ~/installation.log
+sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+echo "  -updating package cache and installing..." >> ~/installation.log
+sudo apt install apt-transport-https
+sudo apt update
+echo "  -installing vs-code..." >> ~/installation.log
+sudo apt install code # or code-insiders
+# vs-code (snap version, in case we will need it)
+# echo "Installing vs-code (snap)" >> ~/installation.log
+# sudo snap install --classic code
+echo "Installing latex extension for vs-code" >> ~/installation.log
+code --install-extension james-yu.latex-workshop
+echo "Installing python extension for vs-code" >> ~/installation.log
+code --install-extension ms-python.python
 
 # Adding OBS since you will need it someday
 echo "Installing OBS" >> ~/installation.log
