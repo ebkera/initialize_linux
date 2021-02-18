@@ -44,7 +44,7 @@ echo "  -updating package cache and installing..." >> ~/installation.log
 sudo apt install apt-transport-https
 sudo apt update
 echo "  -installing vs-code..." >> ~/installation.log
-sudo apt install code # or code-insiders
+sudo apt install -y code # or code-insiders
 # vs-code (snap version, in case we will need it)
 # echo "Installing vs-code (snap)" >> ~/installation.log
 # sudo snap install --classic code
