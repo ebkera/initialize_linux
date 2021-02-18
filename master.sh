@@ -10,6 +10,7 @@ sudo apt install -y curl
 sudo apt install -y texlive-latex-extra
 sudo apt install -y latexmk  # this is for vscode extension latex-workshop
 sudo apt install -y snapd
+sudo snap install microsoft-todo-unofficial
 sudo snap install --classic code
 code --install-extension james-yu.latex-workshop
 code --install-extension ms-python.python
