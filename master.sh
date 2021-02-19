@@ -1,9 +1,8 @@
 #!/bin/bash
 
 ## General stuff here
-echo "" >> ~/installation.log
-echo "Eranjan" > ~/installation.log
 echo "################        Installation Log        ###############" > ~/installation.log
+echo "Eranjan" >> ~/installation.log
 gnome-terminal -- sh -c "tail -f ~/installation.log" 
 echo "" >> ~/installation.log
 echo "Updating Repos" >> ~/installation.log
