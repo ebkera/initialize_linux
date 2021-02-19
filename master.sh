@@ -2,8 +2,9 @@
 
 ## General stuff here
 echo "" >> ~/installation.log
-echo "Installation Log" > ~/installation.log
-# gnome-terminal -- tail -f ~/installation.log # Need to fix does not stay open # Will open up a new terminaland follow on .log file
+echo "Eranjan" > ~/installation.log
+echo "################        Installation Log        ###############" > ~/installation.log
+gnome-terminal -- sh -c "tail -f ~/installation.log" 
 echo "" >> ~/installation.log
 echo "Updating Repos" >> ~/installation.log
 sudo apt update
