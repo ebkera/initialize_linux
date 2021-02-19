@@ -82,6 +82,7 @@ sudo apt install -y teams
 
 # Installing Windscribe
 echo "Installing Windscribe" >> ~/installation.log
+echo "  More info at: https://windscribe.com/guides/linux" >> ~/installation.log
 echo "  -Adding the Windscribe signing key to apt..." >> ~/installation.log
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key FDC247B7
 echo "  -Adding repository to my sources.list..." >> ~/installation.log
@@ -96,14 +97,18 @@ sudo apt-get install -y windscribe-cli
 # windscribe connect
 # 8. Need help?
 # windscribe --help
-echo "  -Adding" >> ~/installation.log
-echo "  -Adding" >> ~/installation.log
-echo "  -Adding" >> ~/installation.log
-echo "  -Adding" >> ~/installation.log
-echo "  -Adding" >> ~/installation.log
-echo "  -Adding" >> ~/installation.log
 
-
+# Installing qbitbtorrent
+https://www.fossmint.com/best-bittorrent-clients-for-linux/
+echo "Installing qbitorrent" >> ~/installation.log
+echo "  More info at: https://www.qbittorrent.org/" >> ~/installation.log
+echo "  More installation info at: https://www.fossmint.com/best-bittorrent-clients-for-linux/" >> ~/installation.log
+echo "  -Adding PPA" >> ~/installation.log
+$ sudo add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+echo "  -Updating repos" >> ~/installation.log
+$ sudo apt-get update
+echo "  -Installing qbittorrent" >> ~/installation.log
+sudo apt-get install -y qbittorrent
 
 # Appearance and look and feel here
 echo "" >> ~/installation.log
