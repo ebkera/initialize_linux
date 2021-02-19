@@ -120,8 +120,10 @@ echo "Changing Icon size to 12" >> ~/installation.log
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 12
 echo "Setting text scalling factor to 0.8" >> ~/installation.log
 gsettings set org.gnome.desktop.interface text-scaling-factor 0.8
-echo "Setting custom Sri Lankan wallaper" >> ~/installation.log
-wget -O ~/Downloads/wallpaper.jpg https://raw.githubusercontent.com/ebkera/initialize_linux/main/wp1857986-sri-lanka-wallpapers.jpg
+# echo "Setting custom Sri Lankan wallaper" >> ~/installation.log
+# wget -O ~/Downloads/wallpaper.jpg https://raw.githubusercontent.com/ebkera/initialize_linux/main/wp1857986-sri-lanka-wallpapers.jpg
+echo "Setting logo as wallaper" >> ~/installation.log
+wget -O ~/Downloads/wallpaper.jpg https://raw.githubusercontent.com/ebkera/initialize_linux/main/myLogo19Negative.png
 gsettings set org.gnome.desktop.background picture-uri file://$HOME/Downloads/wallpaper.jpg
 
 ## If this is a laptop and the OS is ubuntu then usually overheating occurs so we need TLP
