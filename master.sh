@@ -1,12 +1,13 @@
 #!/bin/bash
 
 ## General stuff here
+echo "" >> ~/installation.log
 echo "Installation Log" > ~/installation.log
 # gnome-terminal -- tail -f ~/installation.log # Need to fix does not stay open # Will open up a new terminaland follow on .log file
 echo "" >> ~/installation.log
 echo "Updating Repos" >> ~/installation.log
 sudo apt update
-echo "Upgrading repos" >> ~/installation.log
+echo "Upgrading Repos" >> ~/installation.log
 sudo apt upgrade -y
 
 # Adding commonly required packages
@@ -74,7 +75,7 @@ sudo apt update && sudo apt install -y signal-desktop  # Its essenstial to updat
 
 # Installing MS-teams (not in repos)
 echo "Installing Teams" >> ~/installation.log
-echo "If installation fails make sure you have curl installed... try sudo apt install curl" >> ~/installation.log
+echo "  If installation fails make sure you have curl installed... try sudo apt install curl" >> ~/installation.log
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
 sudo apt update
@@ -121,7 +122,7 @@ echo "Setting text scalling factor to 0.8" >> ~/installation.log
 gsettings set org.gnome.desktop.interface text-scaling-factor 0.8
 echo "Setting custom Sri Lankan wallaper" >> ~/installation.log
 wget -O ~/Downloads/wallpaper.jpg https://raw.githubusercontent.com/ebkera/initialize_linux/main/wp1857986-sri-lanka-wallpapers.jpg
-# gsettings set org.gnome.desktop.background picture-uri file:///~/Downloads/wallpaper.jpg
+gsettings set org.gnome.desktop.background picture-uri file://$HOME/Downloads/wallpaper.jpg
 
 ## If this is a laptop and the OS is ubuntu then usually overheating occurs so we need TLP
 # This is from: https://itsfoss.com/reduce-overheating-laptops-linux/
