@@ -136,6 +136,9 @@ wget -O ~/Downloads/wallpaper.jpg https://raw.githubusercontent.com/ebkera/initi
 # echo "Setting logo as wallaper" >> ~/installation.log
 # wget -O ~/Downloads/wallpaper.jpg https://raw.githubusercontent.com/ebkera/initialize_linux/main/myLogo19Negative.png
 gsettings set org.gnome.desktop.background picture-uri file://$HOME/Downloads/wallpaper.jpg
+echo "Adding my templates" >> ~/installation.log
+echo "  -Bash Script" >> ~/installation.log
+wget -O ~/Templates/New\ Bash\ Script.sh https://raw.githubusercontent.com/ebkera/initialize_linux/main/New%20Bash%20Script.sh
 
 ## If this is a laptop and the OS is ubuntu then usually overheating occurs so we need TLP
 # This is from: https://itsfoss.com/reduce-overheating-laptops-linux/
