@@ -140,7 +140,7 @@ gsettings set org.gnome.desktop.background picture-uri file://$HOME/Downloads/wa
 ## If this is a laptop and the OS is ubuntu then usually overheating occurs so we need TLP
 # This is from: https://itsfoss.com/reduce-overheating-laptops-linux/
 echo "" >> ~/installation.log
-echo "--Setting LTP for battery conservation on laptops--" >> ~/installation.log
+echo "--Installing LTP for battery conservation on laptops--" >> ~/installation.log
 echo "Adding PPA linrunner" >> ~/installation.log
 sudo add-apt-repository -y ppa:linrunner/tlp
 echo "Updating PPA" >> ~/installation.log
