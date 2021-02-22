@@ -5,9 +5,11 @@ echo "################        Installation Log        ###############" > ~/insta
 echo "Eranjan" >> ~/installation.log
 gnome-terminal -- sh -c "tail -f ~/installation.log" 
 echo "" >> ~/installation.log
+echo "Maybe also do 'apt full-upgrade'... Not done here..." >> ~/installation.log
+echo "" >> ~/installation.log
 echo "Updating Repos" >> ~/installation.log
 sudo apt update
-echo "Upgrading Repos" >> ~/installation.log
+echo "Upgrading Packages" >> ~/installation.log
 sudo apt upgrade -y
 
 # Adding commonly required packages
@@ -203,6 +205,7 @@ onedrive  # Run onedrive to install for personal accounts. Copy the link shown a
 # This will enable systemd services to automate the startup, syncing and monitoring of onedrive.
 sudo apt install -y libnotify-dev  # Prereq for notifications
 systemctl --user enable onedrive
+echo "  -Starting OneDrive Personal" >> ~/installation.log
 systemctl --user start onedrive
 # Now let's do other Onedrives 
 echo "Installing OneDrive Organization" >> ~/installation.log
@@ -219,6 +222,10 @@ onedrive --confdir="~/.config/onedrive_uic" --display-config  # Using this we ca
 # This is the relevant command if you want to copy and change the file: sudo cp /usr/lib/systemd/user/onedrive.service /usr/lib/systemd/user/onedrive_uic.service
 sudo wget https://raw.githubusercontent.com/ebkera/initialize_linux/main/onedrive_uic.service -O /usr/lib/systemd/user/onedrive_uic.service
 systemctl --user enable onedrive_uic
+echo "  -Starting OneDrive Organization" >> ~/installation.log
 systemctl --user start onedrive_uic
+
+echo "End of installing and updating. Ctrl+c to exit...." >> ~/installation.log
+
 
 
