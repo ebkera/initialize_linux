@@ -33,6 +33,15 @@ echo "Installing Spotify" >> ~/installation.log
 curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 sudo apt install -y spotify-client
+echo "Installing etcher" >> ~/installation.log
+echo "  -Adding Etcher’s repository to repo list" >> ~/installation.log
+echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+echo "  -Adding Etcher’s repository key to the trusted list" >> ~/installation.log
+sudo apt-key adv --keyserver hkps://keyserver.ubuntu.com:443 --recv-keys 379CE192D401AB61
+echo "  -Updating package list" >> ~/installation.log
+sudo apt update
+echo "  -Installing Etcher" >> ~/installation.log
+sudo apt install -y balena-etcher-electron
 
 # Installing vs-code from microsoft (non-snap) and extenstions
 echo "Installing vs-code (non-snap)" >> ~/installation.log
