@@ -72,6 +72,13 @@ sudo add-apt-repository -y ppa:obsproject/obs-studio
 sudo apt update  # updating new ppa
 sudo apt install -y obs-studio
 
+echo "Installing TeamViewer" >> ~/installation.log
+echo "  -Downloading TeamViewer .deb 64bit" >> ~/installation.log
+wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+echo "  -Downloading TeamViewer .deb 64bit" >> ~/installation.log
+sudo apt install -y ./teamviewer_amd64.deb
+
+
 # Installing signal
 echo "Installing Signal" >> ~/installation.log
 # Installing snap package is below but we will use signals repos
