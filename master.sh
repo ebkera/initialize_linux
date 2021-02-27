@@ -46,6 +46,8 @@ echo "  -Updating package list" >> ~/installation.log
 sudo apt update
 echo "  -Installing Etcher" >> ~/installation.log
 sudo apt install -y balena-etcher-electron
+echo "Installing Okular (pdf reader)" >> ~/installation.log
+sudo apt install -y okular
 
 # Installing vs-code from microsoft (non-snap) and extenstions
 echo "Installing vs-code (non-snap)" >> ~/installation.log
