@@ -239,10 +239,7 @@ systemctl --user start onedrive_uic
 echo "End of installing and updating." >> ~/installation.log
 echo "" >> ~/installation.log
 ENDTIME=$(date +%s)
-time = $($ENDTIME - $STARTTIME)
+time = $time=$(($ENDTIME - $STARTTIME))
 echo "Installation walltime: $time seconds." >> ~/installation.log
 echo "" >> ~/installation.log
 echo "Ctrl+c to exit...." >> ~/installation.log
-
-
-
