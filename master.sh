@@ -219,7 +219,7 @@ systemctl --user enable onedrive
 echo "  -Starting OneDrive Personal" >> ~/installation.log
 systemctl --user start onedrive
 # Now let's do other Onedrives 
-echo "Installing OneDrive Organization" >> ~/installation.log
+echo "Installing OneDrive Organizational" >> ~/installation.log
 # We follow instructions from here: https://github.com/abraunegg/onedrive/blob/master/docs/advanced-usage.md
 mkdir ~/.config/onedrive_uic
 # We should copy in a default config file. Here I have used a pre built config file.
@@ -233,7 +233,7 @@ onedrive --confdir="~/.config/onedrive_uic" --display-config  # Using this we ca
 # This is the relevant command if you want to copy and change the file: sudo cp /usr/lib/systemd/user/onedrive.service /usr/lib/systemd/user/onedrive_uic.service
 sudo wget https://raw.githubusercontent.com/ebkera/initialize_linux/main/onedrive_uic.service -O /usr/lib/systemd/user/onedrive_uic.service
 systemctl --user enable onedrive_uic
-echo "  -Starting OneDrive Organization" >> ~/installation.log
+echo "  -Starting OneDrive Organizational" >> ~/installation.log
 systemctl --user start onedrive_uic
 
 echo "End of installing and updating." >> ~/installation.log
