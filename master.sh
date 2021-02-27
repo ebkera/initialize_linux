@@ -1,5 +1,7 @@
 #!/bin/bash
 
+STARTTIME=$(date +%s)
+
 ## General stuff here
 echo "################        Installation Log        ###############" > ~/installation.log
 echo "Eranjan" >> ~/installation.log
@@ -75,9 +77,8 @@ sudo apt install -y obs-studio
 echo "Installing TeamViewer" >> ~/installation.log
 echo "  -Downloading TeamViewer .deb 64bit" >> ~/installation.log
 wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-echo "  -Downloading TeamViewer .deb 64bit" >> ~/installation.log
+echo "  -Installing TeamViewer .deb 64bit" >> ~/installation.log
 sudo apt install -y ./teamviewer_amd64.deb
-
 
 # Installing signal
 echo "Installing Signal" >> ~/installation.log
@@ -235,7 +236,13 @@ systemctl --user enable onedrive_uic
 echo "  -Starting OneDrive Organization" >> ~/installation.log
 systemctl --user start onedrive_uic
 
-echo "End of installing and updating. Ctrl+c to exit...." >> ~/installation.log
+echo "End of installing and updating." >> ~/installation.log
+echo "" >> ~/installation.log
+ENDTIME=$(date +%s)
+time = $($ENDTIME - $STARTTIME)
+echo "Installation walltime: $time seconds." >> ~/installation.log
+echo "" >> ~/installation.log
+echo "Ctrl+c to exit...." >> ~/installation.log
 
 
 
