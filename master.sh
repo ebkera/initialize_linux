@@ -62,8 +62,9 @@ rm -f $INS_DIR/VESTA-gtk3.tar.bz2
 ln -s $INS_DIR/VESTA-gtk3/VESTA  $HOME/Desktop/VESTA
 echo "  ==> Find the VESTA executable in $INS_DIR/VESTA-gtk3/ .." >> ~/installation.log
 echo "  ==> Find shortcut to VESTA on desktop" >> ~/installation.log
-
-ln -s /opt/foo /usr/bin/bar
+echo "Installing lm-sensors and hddtemp: monitor with sensors" >> ~/installation.log
+sudo apt install -y lm-sensors hddtemp
+echo "  More info at: https://itsfoss.com/check-laptop-cpu-temperature-ubuntu/" >> ~/installation.log
 
 # Installing vs-code from microsoft (non-snap) and extenstions
 echo "Installing vs-code (non-snap)" >> ~/installation.log
