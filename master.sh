@@ -65,6 +65,9 @@ echo "  ==> Find shortcut to VESTA on desktop" >> ~/installation.log
 echo "Installing lm-sensors and hddtemp: monitor with sensors" >> ~/installation.log
 sudo apt install -y lm-sensors hddtemp
 echo "  More info at: https://itsfoss.com/check-laptop-cpu-temperature-ubuntu/" >> ~/installation.log
+echo "Installing tkinter.. (matplotlib needs it to display)" >> ~/installation.log
+sudo apt install -y python3-tk
+
 
 # Installing vs-code from microsoft (non-snap) and extenstions
 echo "Installing vs-code (non-snap)" >> ~/installation.log
