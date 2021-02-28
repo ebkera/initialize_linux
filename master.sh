@@ -52,6 +52,18 @@ echo "  -Installing Etcher" >> ~/installation.log
 sudo apt install -y balena-etcher-electron
 echo "Installing Okular (pdf reader)" >> ~/installation.log
 sudo apt install -y okular
+echo "Installing VESTA" >> ~/installation.log
+echo "  -Downloading" >> ~/installation.log
+sudo wget https://jp-minerals.org/vesta/archives/3.5.7/VESTA-gtk3.tar.bz2 -O $INS_DIR/
+echo "  -Extracting" >> ~/installation.log
+sudo tar -xvf $INS_DIR/VESTA-gtk3.tar.bz2 -C $INS_DIR/
+echo "  -Cleaning up" >> ~/installation.log
+rm -f $INS_DIR/VESTA-gtk3.tar.bz2
+ln -s $INS_DIR/VESTA-gtk3/VESTA  $HOME/Desktop/VESTA
+echo "  ==> Find the VESTA executable in $INS_DIR/VESTA-gtk3/ .." >> ~/installation.log
+echo "  ==> Find shortcut to VESTA on desktop" >> ~/installation.log
+
+ln -s /opt/foo /usr/bin/bar
 
 # Installing vs-code from microsoft (non-snap) and extenstions
 echo "Installing vs-code (non-snap)" >> ~/installation.log
