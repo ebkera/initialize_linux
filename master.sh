@@ -5,6 +5,10 @@ STARTTIME=$(date +%s)
 ## General stuff here
 echo "################        Installation Log        ###############" > ~/installation.log
 echo "Eranjan" >> ~/installation.log
+INS_DIR=$HOME/Installs
+mkdir $INS_DIR
+echo "Please find executables in $INS_DIR" >> ~/installation.log
+
 gnome-terminal -- sh -c "tail -f ~/installation.log" 
 echo "" >> ~/installation.log
 echo "Maybe also do 'apt full-upgrade'... Not done here..." >> ~/installation.log
