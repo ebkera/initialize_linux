@@ -53,8 +53,8 @@ sudo apt install -y balena-etcher-electron
 echo "Installing Okular (pdf reader)" >> ~/installation.log
 sudo apt install -y okular
 echo "Installing VESTA" >> ~/installation.log
-echo "  -Downloading" >> ~/installation.log
-sudo wget https://jp-minerals.org/vesta/archives/3.5.7/VESTA-gtk3.tar.bz2 -O $INS_DIR/
+echo "  -Downloading..." >> ~/installation.log
+sudo wget https://jp-minerals.org/vesta/archives/3.5.7/VESTA-gtk3.tar.bz2 -O $INS_DIR/VESTA-gtk3.tar.bz2
 echo "  -Extracting" >> ~/installation.log
 sudo tar -xvf $INS_DIR/VESTA-gtk3.tar.bz2 -C $INS_DIR/
 echo "  -Cleaning up" >> ~/installation.log
@@ -67,7 +67,13 @@ sudo apt install -y lm-sensors hddtemp
 echo "  More info at: https://itsfoss.com/check-laptop-cpu-temperature-ubuntu/" >> ~/installation.log
 echo "Installing tkinter.. (matplotlib needs it to display)" >> ~/installation.log
 sudo apt install -y python3-tk
-
+echo "Installing Slack" >> ~/installation.log
+echo "  -Downloading..." >> ~/installation.log
+sudo wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.13.0-amd64.deb -O $INS_DIR/slack-desktop-4.13.0-amd64.deb
+echo "  -Installing" >> ~/installation.log
+sudo apt install -y $INS_DIR/slack-desktop-*.deb
+echo "  -Cleaning up" >> ~/installation.log
+rm -f $INS_DIR/slack-desktop-*.deb
 
 # Installing vs-code from microsoft (non-snap) and extenstions
 echo "Installing vs-code (non-snap)" >> ~/installation.log
