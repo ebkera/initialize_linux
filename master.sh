@@ -165,7 +165,7 @@ echo "Setting custom Sri Lankan wallaper" >> ~/installation.log
 wget -O ~/Downloads/wallpaper.jpg https://raw.githubusercontent.com/ebkera/initialize_linux/main/wp1857986-sri-lanka-wallpapers.jpg
 # echo "Setting logo as wallaper" >> ~/installation.log
 # wget -O ~/Downloads/wallpaper.jpg https://raw.githubusercontent.com/ebkera/initialize_linux/main/myLogo19Negative.png
-gsettings set org.gnome.desktop.background picture-uri file://$HOME/Downloads/wallpaper.jpg
+# gsettings set org.gnome.desktop.background picture-uri file://$HOME/Downloads/wallpaper.jpg
 echo "Adding my templates" >> ~/installation.log
 echo "  -Bash Script" >> ~/installation.log
 wget -O ~/Templates/New\ Bash\ Script.sh https://raw.githubusercontent.com/ebkera/initialize_linux/main/New%20Bash%20Script.sh
@@ -215,12 +215,14 @@ echo "Path to python packages: $path_to_packages"
 echo "Git cloning my repos" >> ~/installation.log
 cd $path_to_packages
 git clone https://github.com/ebkera/ebk.git
-echo "Copying files to /usr/local/bin/" >> ~/installation.log
+echo "Copying script files to /usr/local/bin/" >> ~/installation.log
 sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/clean_siesta -O /usr/local/bin/clean_siesta
 sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_cube_files -O /usr/local/bin/get_cube_files
 sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_times_siesta -O /usr/local/bin/get_times_siesta
 sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/linuxer -O /usr/local/bin/linuxer
 sudo wget https://github.com/ebkera/scripts/edit/main/necessary_files_copy_siesta -O /usr/local/bin/necessary_files_copy_siesta
+echo "  -Making all files in /usr/local/bin executable..." >> ~/installation.log
+sudo chmod +x -R /usr/local/bin/
 # carbon ssh config file and settings
 wget -O ~/.ssh/config https://raw.githubusercontent.com/ebkera/initialize_linux/main/config_ssh_carbon
 echo "Enter username for ANL on prompt..." >> ~/installation.log
