@@ -6,6 +6,7 @@ STARTTIME=$(date +%s)
 echo "################        Installation Log        ###############" > ~/installation.log
 echo "Eranjan" >> ~/installation.log
 INS_DIR=$HOME/Installs
+CUR_DIR=($pwd)
 mkdir $INS_DIR
 echo "Please find executables in $INS_DIR" >> ~/installation.log
 
@@ -75,7 +76,7 @@ sudo apt install -y $INS_DIR/slack-desktop-*.deb
 echo "  -Cleaning up" >> ~/installation.log
 rm -f $INS_DIR/slack-desktop-*.deb
 
-# Installing vs-code from microsoft (non-snap) and extenstions
+# Installing vs-code from microsoft (non-snap) and extensions
 echo "Installing vs-code (non-snap)" >> ~/installation.log
 echo "  -wget-ing files..." >> ~/installation.log
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -220,7 +221,11 @@ path_to_packages=$(python3 -m site --user-site)
 echo "Path to python packages: $path_to_packages"
 echo "Git cloning my repos" >> ~/installation.log
 cd $path_to_packages
+echo "  -git cloning -ebk-" >> ~/installation.log
 git clone https://github.com/ebkera/ebk.git
+echo "  -git cloning -thiruba-" >> ~/installation.log
+git clone https://github.com/ebkera/thiruba.git
+cd $CUR_DIR
 echo "Copying script files to /usr/local/bin/" >> ~/installation.log
 sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/clean_siesta -O /usr/local/bin/clean_siesta
 sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_cube_files -O /usr/local/bin/get_cube_files
