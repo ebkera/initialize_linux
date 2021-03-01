@@ -5,7 +5,7 @@ STARTTIME=$(date +%s)
 ## General stuff here
 echo "################        Installation Log        ###############" > ~/installation.log
 echo "Eranjan" >> ~/installation.log
-INS_DIR=$HOME/Installs
+INS_DIR=$HOME/bin
 CUR_DIR=($pwd)
 mkdir $INS_DIR
 echo "Please find executables in $INS_DIR" >> ~/installation.log
@@ -226,12 +226,23 @@ git clone https://github.com/ebkera/ebk.git
 echo "  -git cloning -thiruba-" >> ~/installation.log
 git clone https://github.com/ebkera/thiruba.git
 cd $CUR_DIR
-echo "Copying script files to /usr/local/bin/" >> ~/installation.log
+echo "Getting script files" >> ~/installation.log
+# This below bit is another way of doing it but not recommended git stuff...
+#echo "  -Git cloning script files to $INS_DIR/scripts" >> ~/installation.log
+#git clone https://github.com/ebkera/scripts.git $INS_DIR/scripts
+#echo "  -Exporting $INS_DIR/scripts to path" >> ~/installation.log
+#export PATH="$INS_DIR/scripts:$PATH"
+#echo "  -Making all files in $INS_DIR/scripts executable..." >> ~/installation.log
+#sudo chmod +x -R $INS_DIR/scripts/
+# We do individual files to the /usr/local/bin/ here is the script
+echo "  -Copying script files to /usr/local/bin/" >> ~/installation.log
+##sudo wget https://github.com/ebkera/scripts/archive/main.zip -O "$INS_DIR"
 sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/clean_siesta -O /usr/local/bin/clean_siesta
 sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_cube_files -O /usr/local/bin/get_cube_files
 sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_times_siesta -O /usr/local/bin/get_times_siesta
 sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/linuxer -O /usr/local/bin/linuxer
-sudo wget https://github.com/ebkera/scripts/edit/main/necessary_files_copy_siesta -O /usr/local/bin/necessary_files_copy_siesta
+sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/necessary_files_copy_siesta -O /usr/local/bin/necessary_files_copy_siesta
+sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_moves_siesta -O /usr/local/bin/get_moves_siesta
 echo "  -Making all files in /usr/local/bin executable..." >> ~/installation.log
 sudo chmod +x -R /usr/local/bin/
 # carbon ssh config file and settings
