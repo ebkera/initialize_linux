@@ -77,6 +77,8 @@ echo "  -Cleaning up" >> ~/installation.log
 rm -f $INS_DIR/slack-desktop-*.deb
 echo "Installing VLC (snap since comes with codecs and updates)" >> ~/installation.log
 sudo snap install vlc
+echo "Installing dos2unix" >> ~/installation.log
+sudo apt install -y dos2unix
 
 # Installing vs-code from microsoft (non-snap) and extensions
 echo "Installing vs-code (non-snap)" >> ~/installation.log
@@ -239,14 +241,14 @@ echo "Getting script files" >> ~/installation.log
 # We do individual files to the /usr/local/bin/ here is the script
 echo "  -Copying script files to /usr/local/bin/" >> ~/installation.log
 ##sudo wget https://github.com/ebkera/scripts/archive/main.zip -O "$INS_DIR"
-sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/clean_siesta -O /usr/local/bin/clean_siesta
-sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_cube_files -O /usr/local/bin/get_cube_files
-sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_times_siesta -O /usr/local/bin/get_times_siesta
-sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/linuxer -O /usr/local/bin/linuxer
-sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/necessary_files_copy_siesta -O /usr/local/bin/necessary_files_copy_siesta
-sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_moves_siesta -O /usr/local/bin/get_moves_siesta
-echo "  -Making all files in /usr/local/bin executable..." >> ~/installation.log
-sudo chmod +x -R /usr/local/bin/
+sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/clean_siesta -O $INS_DIR/clean_siesta
+sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_cube_files -O $INS_DIR/get_cube_files
+sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_times_siesta -O $INS_DIR/get_times_siesta
+sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/linuxer -O $INS_DIR/linuxer
+sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/necessary_files_copy_siesta -O $INS_DIR/necessary_files_copy_siesta
+sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_moves_siesta -O $INS_DIR/get_moves_siesta
+echo "  -Making all files in $INS_DIR executable..." >> ~/installation.log
+sudo chmod +x -R $INS_DIR/
 # carbon ssh config file and settings
 wget -O ~/.ssh/config https://raw.githubusercontent.com/ebkera/initialize_linux/main/config_ssh_carbon
 echo "Enter username for ANL on prompt..." >> ~/installation.log
