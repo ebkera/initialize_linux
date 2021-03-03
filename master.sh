@@ -75,6 +75,8 @@ echo "  -Installing" >> ~/installation.log
 sudo apt install -y $INS_DIR/slack-desktop-*.deb
 echo "  -Cleaning up" >> ~/installation.log
 rm -f $INS_DIR/slack-desktop-*.deb
+echo "Installing VLC (snap since comes with codecs and updates)" >> ~/installation.log
+sudo snap install vlc
 
 # Installing vs-code from microsoft (non-snap) and extensions
 echo "Installing vs-code (non-snap)" >> ~/installation.log
