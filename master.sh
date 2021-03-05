@@ -79,6 +79,8 @@ echo "Installing VLC (snap since comes with codecs and updates)" >> ~/installati
 sudo snap install vlc
 echo "Installing dos2unix" >> ~/installation.log
 sudo apt install -y dos2unix
+echo "Installing flameshot for screenshots" >> ~/installation.log
+sudo apt install -y flameshot
 
 # Installing vs-code from microsoft (non-snap) and extensions
 echo "Installing vs-code (non-snap)" >> ~/installation.log
