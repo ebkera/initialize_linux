@@ -5,10 +5,33 @@ STARTTIME=$(date +%s)
 ## General stuff here
 echo "################        Installation Log        ###############" > ~/installation.log
 echo "Eranjan" >> ~/installation.log
-INS_DIR=$HOME/bin
+echo "" >> ~/installation.log
+
+BIN_DIR=$HOME/bin
 CUR_DIR=($pwd)
-mkdir $INS_DIR
-echo "Please find executables in $INS_DIR" >> ~/installation.log
+INS_DIR=/opt
+DEB_DIR=$HOME/debs
+
+if [ ! -d $BIN_DIR ] 
+then
+    mkdir $BIN_DIR
+    echo "  Directory $BIN_DIR did not exist and was created..." >> ~/installation.log
+fi
+echo "  Find your own binaries, executables and scripts in $BIN_DIR" >> ~/installation.log
+
+if [ ! -d $INS_DIR ] 
+then
+    mkdir $INS_DIR
+    echo "  Directory $INS_DIR did not exist and was created..." >> ~/installation.log
+fi
+echo "  Find  installed apps in $INS_DIR" >> ~/installation.log
+
+if [ ! -d $DEB_DIR ] 
+then
+    mkdir $DEB_DIR
+    echo "  Directory $DEB_DIR did not exist and was created..." >> ~/installation.log
+fi
+echo "  Find downloaded .debs in $DEB_DIR" >> ~/installation.log
 
 gnome-terminal -- sh -c "tail -f ~/installation.log" 
 echo "" >> ~/installation.log
@@ -51,17 +74,18 @@ echo "  -Updating package list" >> ~/installation.log
 sudo apt update
 echo "  -Installing Etcher" >> ~/installation.log
 sudo apt install -y balena-etcher-electron
-echo "Installing Okular (pdf reader)" >> ~/installation.log
-sudo apt install -y okular
+# echo "Installing Okular (pdf reader)" >> ~/installation.log  # Not as good as I thought.
+# sudo apt install -y okular
 echo "Installing VESTA" >> ~/installation.log
 echo "  -Downloading..." >> ~/installation.log
-sudo wget https://jp-minerals.org/vesta/archives/3.5.7/VESTA-gtk3.tar.bz2 -O $INS_DIR/VESTA-gtk3.tar.bz2
+sudo mkdir $INS_DIR/VESTA
+sudo wget https://jp-minerals.org/vesta/archives/3.5.7/VESTA-gtk3.tar.bz2 -O $INS_DIR/VESTA/VESTA-gtk3.tar.bz2
 echo "  -Extracting" >> ~/installation.log
-sudo tar -xvf $INS_DIR/VESTA-gtk3.tar.bz2 -C $INS_DIR/
+sudo tar -xvf $INS_DIR/VESTA/VESTA-gtk3.tar.bz2 -C $INS_DIR/VESTA/
 echo "  -Cleaning up" >> ~/installation.log
-rm -f $INS_DIR/VESTA-gtk3.tar.bz2
-ln -s $INS_DIR/VESTA-gtk3/VESTA  $HOME/Desktop/VESTA
-echo "  ==> Find the VESTA executable in $INS_DIR/VESTA-gtk3/ .." >> ~/installation.log
+sudo rm -f $INS_DIR/VESTA/VESTA-gtk3.tar.bz2
+sudo ln -s $INS_DIR/VESTA/VESTA-gtk3/VESTA  $HOME/Desktop/VESTA
+echo "  ==> Find the VESTA executable in $INS_DIR/VESTA/VESTA-gtk3/ .." >> ~/installation.log
 echo "  ==> Find shortcut to VESTA on desktop" >> ~/installation.log
 echo "Installing lm-sensors and hddtemp: monitor with sensors" >> ~/installation.log
 sudo apt install -y lm-sensors hddtemp
@@ -70,17 +94,27 @@ echo "Installing tkinter.. (matplotlib needs it to display)" >> ~/installation.l
 sudo apt install -y python3-tk
 echo "Installing Slack" >> ~/installation.log
 echo "  -Downloading..." >> ~/installation.log
-sudo wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.13.0-amd64.deb -O $INS_DIR/slack-desktop-4.13.0-amd64.deb
+sudo wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.13.0-amd64.deb -O $DEB_DIR/slack-desktop-4.13.0-amd64.deb
 echo "  -Installing" >> ~/installation.log
-sudo apt install -y $INS_DIR/slack-desktop-*.deb
-echo "  -Cleaning up" >> ~/installation.log
-rm -f $INS_DIR/slack-desktop-*.deb
+sudo apt install -y $DEB_DIR/slack-desktop-*.deb
+# echo "  -Cleaning up" >> ~/installation.log
+# sudo rm -f $DEB_DIR/slack-desktop-*.deb
 echo "Installing VLC (snap since comes with codecs and updates)" >> ~/installation.log
 sudo snap install vlc
 echo "Installing dos2unix" >> ~/installation.log
 sudo apt install -y dos2unix
 echo "Installing flameshot for screenshots" >> ~/installation.log
 sudo apt install -y flameshot
+echo "Installing Zotero" >> ~/installation.log
+echo "  -Downloading..." >> ~/installation.log
+sudo mkdir $INS_DIR/zotero
+sudo wget https://download.zotero.org/client/release/5.0.96/Zotero-5.0.96_linux-x86_64.tar.bz2 -O $INS_DIR/zotero/zotero.tar.bz2
+echo "  -Extracting" >> ~/installation.log
+sudo tar -xvf $INS_DIR/zotero/zotero.tar.bz2 -C $INS_DIR/zotero/
+echo "  -Setting symlink to applications menu" >> ~/installation.log
+sudo ln -s $INS_DIR/zotero/Zotero_linux-x86_64/zotero.desktop ~/.local/share/applications/zotero.desktop
+echo "  -Cleaning up" >> ~/installation.log
+sudo rm -r $INS_DIR/zotero/zotero.tar.bz2
 
 # Installing vs-code from microsoft (non-snap) and extensions
 echo "Installing vs-code (non-snap)" >> ~/installation.log
