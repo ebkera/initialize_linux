@@ -115,6 +115,16 @@ echo "  -Setting symlink to applications menu" >> ~/installation.log
 sudo ln -s $INS_DIR/zotero/Zotero_linux-x86_64/zotero.desktop ~/.local/share/applications/zotero.desktop
 echo "  -Cleaning up" >> ~/installation.log
 sudo rm -r $INS_DIR/zotero/zotero.tar.bz2
+echo "Installing Zoom" >> ~/installation.log
+echo "  -Downloading..." >> ~/installation.log
+sudo wget https://cdn.zoom.us/prod/5.5.7938.0228/zoom_amd64.deb -O $DEB_DIR/zoom_amd64.deb
+echo "  -Installing..." >> ~/installation.log
+sudo apt install -y $DEB_DIR/zoom_amd64.deb
+echo "Installing BlueJeans" >> ~/installation.log
+echo "  -Downloading..." >> ~/installation.log
+sudo wget https://swdl.bluejeans.com/desktop-app/linux/2.21.2/BlueJeans_2.21.2.1.deb -O $DEB_DIR/bluejeans.deb
+echo "  -Installing..." >> ~/installation.log
+sudo apt install -y $DEB_DIR/bluejeans.deb
 
 # Installing vs-code from microsoft (non-snap) and extensions
 echo "Installing vs-code (non-snap)" >> ~/installation.log
