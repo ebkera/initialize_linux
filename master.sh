@@ -231,6 +231,9 @@ wget -O ~/Downloads/wallpaper.jpg https://raw.githubusercontent.com/ebkera/initi
 echo "Adding my templates" >> ~/installation.log
 echo "  -Bash Script" >> ~/installation.log
 wget -O ~/Templates/New\ Bash\ Script.sh https://raw.githubusercontent.com/ebkera/initialize_linux/main/New%20Bash%20Script.sh
+echo "  -Text Document" >> ~/installation.log
+wget -O ~/Templates/Text\ Document.txt https://raw.githubusercontent.com/ebkera/initialize_linux/main/Text%20Document.txt
+
 
 ## If this is a laptop and the OS is ubuntu then usually overheating occurs so we need TLP
 # This is from: https://itsfoss.com/reduce-overheating-laptops-linux/
