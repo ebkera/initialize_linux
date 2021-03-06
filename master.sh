@@ -125,6 +125,11 @@ echo "  -Downloading..." >> ~/installation.log
 sudo wget https://swdl.bluejeans.com/desktop-app/linux/2.21.2/BlueJeans_2.21.2.1.deb -O $DEB_DIR/bluejeans.deb
 echo "  -Installing..." >> ~/installation.log
 sudo apt install -y $DEB_DIR/bluejeans.deb
+echo "Installing Geary" >> ~/installation.log
+echo "  -Adding apt repo ppa:geary-team/releases..." >> ~/installation.log
+sudo add-apt-repository -y ppa:geary-team/releases
+echo "  -Installing" >> ~/installation.log
+sudo apt install -y geary
 
 # Installing vs-code from microsoft (non-snap) and extensions
 echo "Installing vs-code (non-snap)" >> ~/installation.log
@@ -215,9 +220,9 @@ echo "--Appearance/Look and feel--" >> ~/installation.log
 echo "Setting dock to bottom" >> ~/installation.log
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
 echo "Changing Icon size to 12" >> ~/installation.log
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 12
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 16
 echo "Setting text scalling factor to 0.8" >> ~/installation.log
-gsettings set org.gnome.desktop.interface text-scaling-factor 0.8
+gsettings set org.gnome.desktop.interface text-scaling-factor 0.9
 echo "Setting custom Sri Lankan wallaper" >> ~/installation.log
 wget -O ~/Downloads/wallpaper.jpg https://raw.githubusercontent.com/ebkera/initialize_linux/main/wp1857986-sri-lanka-wallpapers.jpg
 # echo "Setting logo as wallaper" >> ~/installation.log
