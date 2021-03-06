@@ -285,24 +285,17 @@ echo "  -git cloning -thiruba-" >> ~/installation.log
 git clone https://github.com/ebkera/thiruba.git
 cd $CUR_DIR
 echo "Getting script files" >> ~/installation.log
-# This below bit is another way of doing it but not recommended git stuff...
-#echo "  -Git cloning script files to $INS_DIR/scripts" >> ~/installation.log
-#git clone https://github.com/ebkera/scripts.git $INS_DIR/scripts
-#echo "  -Exporting $INS_DIR/scripts to path" >> ~/installation.log
-#export PATH="$INS_DIR/scripts:$PATH"
-#echo "  -Making all files in $INS_DIR/scripts executable..." >> ~/installation.log
-#sudo chmod +x -R $INS_DIR/scripts/
-# We do individual files to the /usr/local/bin/ here is the script
-echo "  -Copying script files to $BIN_DIR" >> ~/installation.log
-##sudo wget https://github.com/ebkera/scripts/archive/main.zip -O "$INS_DIR"
-sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/clean_siesta -O $BIN_DIR/clean_siesta
-sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_cube_files -O $BIN_DIR/get_cube_files
-sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_times_siesta -O $BIN_DIR/get_times_siesta
-sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/linuxer -O $BIN_DIR/linuxer
-sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/necessary_files_copy_siesta -O $BIN_DIR/necessary_files_copy_siesta
-sudo wget https://raw.githubusercontent.com/ebkera/scripts/main/get_moves_siesta -O $BIN_DIR/get_moves_siesta
-echo "  -Making all files in $BIN_DIR executable..." >> ~/installation.log
+echo "  -Git cloning script files to $DEB_DIR/scripts" >> ~/installation.log
+sudo git clone https://github.com/ebkera/scripts.git $DEB_DIR/scripts
+echo "  -Removing repo and unnecessary files" >> ~/installation.log
+sudo rm -r -f $DEB_DIR/scripts/.git
+sudo rm $DEB_DIR/scripts/*.md
+echo "  -Copying script files to $BIN_DIR/scripts" >> ~/installation.log
+sudo cp $DEB_DIR/scripts/* $BIN_DIR/
 sudo chmod +x -R $BIN_DIR/
+echo "  -Cleaning up" >> ~/installation.log
+sudo rm -r $DEB_DIR/scripts
+
 # carbon ssh config file and settings
 wget -O ~/.ssh/config https://raw.githubusercontent.com/ebkera/initialize_linux/main/config_ssh_carbon
 echo "Enter username for ANL on prompt..." >> ~/installation.log
