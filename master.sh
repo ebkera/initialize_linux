@@ -289,11 +289,11 @@ cd $CUR_DIR
 echo "Getting script files" >> ~/installation.log
 echo "  -Git cloning script files to $DEB_DIR/scripts" >> ~/installation.log
 sudo git clone https://github.com/ebkera/scripts.git $DEB_DIR/scripts
-echo "  -Removing repo and unnecessary files" >> ~/installation.log
-sudo rm -r -f $DEB_DIR/scripts/.git
-sudo rm $DEB_DIR/scripts/*.md
-echo "  -Copying script files to $BIN_DIR/scripts" >> ~/installation.log
-sudo cp $DEB_DIR/scripts/* $BIN_DIR/
+echo "  -Copying nautilus script files to $HOME/.local/share/nautilus/scripts" >> ~/installation.log
+sudo cp $DEB_DIR/scripts/nautilus_scripts/* $HOME/.local/share/nautilus/scripts/
+sudo chmod +x -R $HOME/.local/share/nautilus/scripts/
+echo "  -Copying bin script files to $BIN_DIR/scripts" >> ~/installation.log
+sudo cp $DEB_DIR/scripts/bin_scripts/* $BIN_DIR/
 sudo chmod +x -R $BIN_DIR/
 echo "  -Cleaning up" >> ~/installation.log
 sudo rm -r $DEB_DIR/scripts
