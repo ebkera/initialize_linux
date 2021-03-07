@@ -150,6 +150,8 @@ echo "Installing latex extension for vs-code" >> ~/installation.log
 code --install-extension james-yu.latex-workshop
 echo "Installing python extension for vs-code" >> ~/installation.log
 code --install-extension ms-python.python
+echo "Installing vim extension for vs-code" >> ~/installation.log
+code --install-extension vscodevim.vim
 
 # Adding OBS since you will need it someday
 echo "Installing OBS" >> ~/installation.log
