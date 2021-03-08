@@ -348,3 +348,7 @@ time = $time=$(($ENDTIME - $STARTTIME))
 echo "Installation walltime: $time seconds." >> ~/installation.log
 echo "" >> ~/installation.log
 echo "Ctrl+c to exit...." >> ~/installation.log
+
+# Some useful commands
+# To ender UEFI/BIOS
+systemctl reboot --firmware-setup
