@@ -351,4 +351,4 @@ echo "Ctrl+c to exit...." >> ~/installation.log
 
 # Some useful commands
 # To ender UEFI/BIOS
-systemctl reboot --firmware-setup
+# systemctl reboot --firmware-setup
