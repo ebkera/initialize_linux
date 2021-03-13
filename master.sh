@@ -186,6 +186,14 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams
 sudo apt update
 sudo apt install -y teams
 
+# Installing 4k video and 4k mp3 downloader
+echo "Installing 4K video downloader" >> ~/installation.log
+wget https://dl.4kdownload.com/app/4kvideodownloader_4.15.0-1_amd64.deb?source=website -O $DEB_DIR/4K_video.deb
+sudo dpkg -i $DEB_DIR/4K_video.deb
+echo "Installing 4K mp3 downloader" >> ~/installation.log
+wget https://dl.4kdownload.com/app/4kyoutubetomp3_3.15.0-1_amd64.deb?source=website -O $DEB_DIR/4K_mp3.deb
+sudo dpkg -i $DEB_DIR/4K_mp3.deb
+
 # Installing Windscribe
 echo "Installing Windscribe" >> ~/installation.log
 echo "  More info at: https://windscribe.com/guides/linux" >> ~/installation.log
