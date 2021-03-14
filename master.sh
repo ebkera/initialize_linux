@@ -271,6 +271,17 @@ sudo apt install -y python3-pip
 echo "Installing ASE" >> ~/installation.log
 pip3 install ase
 
+# Scientific Software. Maybe edit this before running script to remove any you dont want.
+echo "" >> ~/installation.log
+echo "--Scientific Software--" >> ~/installation.log
+echo "Installing vaspkit" >> ~/installation.log
+echo "  -Downloading .deb file" >> ~/installation.log
+sudo wget https://phoenixnap.dl.sourceforge.net/project/vaspkit/Binaries/vaspkit.1.2.5.Linux.x64.tar.gz -O $DEB_DIR/vaspkit.tgz
+echo "  -Untaring into $INS_DIR/..." >> ~/installation.log
+sudo tar -zxvf $DEB_DIR/vaspkit.tgz -C $INS_DIR
+echo "  -Adding symbolic link to $BIN_DIR/..." >> ~/installation.log
+sudo ln -s $INS_DIR/vasp*/bin/vaspkit $BIN_DIR/vaspkit
+
 # From here down we have setups where user input is needed.
 echo "" >> ~/installation.log
 echo "--From here on prepare to input user data--" >> ~/installation.log
