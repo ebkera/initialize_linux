@@ -281,6 +281,9 @@ echo "  -Untaring into $INS_DIR/..." >> ~/installation.log
 sudo tar -zxvf $DEB_DIR/vaspkit.tgz -C $INS_DIR
 echo "  -Adding symbolic link to $BIN_DIR/..." >> ~/installation.log
 sudo ln -s $INS_DIR/vasp*/bin/vaspkit $BIN_DIR/vaspkit
+echo "  -Cleaning up" >> ~/installation.log
+sudo rm -r -f $DEB_DIR/vaspkit.tgz
+
 
 # From here down we have setups where user input is needed.
 echo "" >> ~/installation.log
