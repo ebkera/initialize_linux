@@ -377,3 +377,6 @@ echo "Ctrl+c to exit...." >> ~/installation.log
 # To set lenovo conservation mode to on (1) and off (0)
 # You have to login as root sudo su
 # echo 0 > /sys/bus/platform/drivers/ideapad_acpi/VPC2004\:00/conservation_mode  # to set to conservation mode off
+# tocheck secure boot status
+# sudo mokutil --sb-state
+
