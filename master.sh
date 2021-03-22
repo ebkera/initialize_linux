@@ -125,10 +125,13 @@ echo "  -Downloading..." >> ~/installation.log
 sudo wget https://swdl.bluejeans.com/desktop-app/linux/2.21.2/BlueJeans_2.21.2.1.deb -O $DEB_DIR/bluejeans.deb
 echo "  -Installing..." >> ~/installation.log
 sudo apt install -y $DEB_DIR/bluejeans.deb
-echo "Installing Geary" >> ~/installation.log
-echo "  -Adding apt repo ppa:geary-team/releases..." >> ~/installation.log
-sudo add-apt-repository -y ppa:geary-team/releases
-echo "  -Installing" >> ~/installation.log
+# echo "Installing Geary" >> ~/installation.log   # This was the old way... seems like they no longer have the ppa but can be installed using apt
+# echo "  -Adding apt repo ppa:geary-team/releases..." >> ~/installation.log
+# sudo add-apt-repository -y ppa:geary-team/releases
+# echo "  -Installing" >> ~/installation.log
+# sudo apt install -y geary
+# if you have the wrong ppa installed sudo add-apt-repository --remove ppa:geary-team/releases
+echo "Installing Geary" >> ~/installation.log   # This was the new way... 
 sudo apt install -y geary
 
 # Installing vs-code from microsoft (non-snap) and extensions
