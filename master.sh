@@ -383,3 +383,10 @@ echo "Ctrl+c to exit...." >> ~/installation.log
 # tocheck secure boot status
 # sudo mokutil --sb-state
 
+# If Pop os then remember to do the following
+# Remove the appearance and look and feel section
+# change to natural scrolling
+# add keyboard shortcut -> Navigation -> Hide all normal windows
+
+
+
