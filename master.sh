@@ -53,6 +53,8 @@ echo "Installing curl" >> ~/installation.log
 sudo apt install -y curl
 echo "Installing texlive-latex-extra" >> ~/installation.log
 sudo apt install -y texlive-latex-extra
+echo "Installing texlive-xetex" >> ~/installation.log
+sudo apt install -y texlive-xetex
 echo "Installing latexmk" >> ~/installation.log
 sudo apt install -y latexmk  # this is for vscode extension latex-workshop
 echo "Installing snapd" >> ~/installation.log
