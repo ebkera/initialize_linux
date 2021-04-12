@@ -290,6 +290,15 @@ echo "  -Adding symbolic link to $BIN_DIR/..." >> ~/installation.log
 sudo ln -s $INS_DIR/vasp*/bin/vaspkit $BIN_DIR/vaspkit
 echo "  -Cleaning up" >> ~/installation.log
 sudo rm -r -f $DEB_DIR/vaspkit.tgz
+sudo apt-get install g++ build-essential 
+sudo apt-get install gfortran
+sudo apt-get install libopenmpi-dev
+sudo apt-get install libblas-dev
+sudo apt-get install liblapack-dev
+sudo apt-get install libscalapack-mpi-dev
+sudo apt-get install libscalapack-openmpi1
+sudo apt-get install libfftw3-dev
+sudo apt-get install libfftw3-3
 
 
 # From here down we have setups where user input is needed.
