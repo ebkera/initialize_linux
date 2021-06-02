@@ -177,13 +177,14 @@ sudo apt install -y ./teamviewer_amd64.deb
 echo "Installing Signal" >> ~/installation.log
 # Installing snap package is below but we will use signals repos
 # sudo snap install signal-desktop
+# Below is the installation from Signals Repos (commented to not install on a popos machine), pop os recently removed sopport so we will need to use flatpack (install via popshop)
 # get the GPG key for the official Signal repository and add it to the trusted keys of your APT package manager.
-wget -O- https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+# wget -O- https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 # With the key added, you can safely add the repository to your system.
-echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+# echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
 # Thanks to the tee command in Linux, you’ll have a new file signal-xenial.list in the sources.list directory /etc/apt/sources.list.d. This new file will have the Signal repository information i.e. deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main.
 # Now that you have added the repository, update the cache and install Signal desktop application
-sudo apt update && sudo apt install -y signal-desktop  # Its essenstial to update again for the new repos.
+# sudo apt update && sudo apt install -y signal-desktop  # Its essenstial to update again for the new repos.
 
 # Installing MS-teams (not in repos)
 echo "Installing Teams" >> ~/installation.log
