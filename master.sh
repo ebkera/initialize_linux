@@ -344,6 +344,25 @@ echo "Enter username for ANL on prompt..." >> ~/installation.log
 read -p "Enter user name for ANL: " varname
 sed -i "s|uname|${varname}|g" ~/.ssh/config
 
+# Setting up email communications for runs and calculations
+wget -O ~/.ssh/config https://raw.githubusercontent.com/ebkera/initialize_linux/main/config_ssh_carbon
+echo "Enter email for automation on prompt..." >> ~/installation.log
+read -p "Enter email for automation on this machine: " email_name
+read -p "Enter pw: " email_pw
+
+sudo apt -y install ssmtp
+sudo apt -y install mailutils
+
+# This might have to be done under sudo su so revisit this part if it did not work usutlly these commands will not transfer onto the root session
+#sudo su
+sudo echo "UseSTARTTLS=YES" >> /etc/ssmtp/ssmtp.conf
+sudo echo "FromLineOverride=YES" >> /etc/ssmtp/ssmtp.conf
+sudo echo "root=ebk_era@hotmail.com" >> /etc/ssmtp/ssmtp.conf
+sudo echo "mailhub=smtp.live.com:587" >> /etc/ssmtp/ssmtp.conf
+sudo echo "AuthUser=${email_name}" >> /etc/ssmtp/ssmtp.conf
+sudo echo "AuthPass=${email_pw}" >> /etc/ssmtp/ssmtp.conf
+#exit
+
 # Installing onedrive
 echo "" >> ~/installation.log
 echo "--Installing OneDrive--" >> ~/installation.log
