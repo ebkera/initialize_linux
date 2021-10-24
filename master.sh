@@ -53,6 +53,8 @@ echo "Installing curl" >> ~/installation.log
 sudo apt install -y curl
 echo "Installing texlive-latex-extra" >> ~/installation.log
 sudo apt install -y texlive-latex-extra
+echo "Installing texlive-bibtex-extra biber" >> ~/installation.log
+sudo apt install -y texlive-bibtex-extra biber
 echo "Installing texlive-xetex" >> ~/installation.log
 sudo apt install -y texlive-xetex
 echo "Installing fonts" >> ~/installation.log
